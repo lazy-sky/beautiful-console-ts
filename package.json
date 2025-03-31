@@ -1,6 +1,6 @@
 {
   "name": "beautiful-console-ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "스타일링 기능이 강화된 브라우저 콘솔 라이브러리",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
