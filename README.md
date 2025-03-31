@@ -1,4 +1,4 @@
-# BeautifulConsole
+# beautiful-console-ts
 
 프론트엔드 개발자를 위한 스타일링 기능이 강화된 브라우저 콘솔 라이브러리입니다. 디버깅을 더 예쁘고, 가독성 있게 만들어보세요.
 
@@ -31,13 +31,13 @@ yarn add beautiful-console-ts
 ### 기본 사용법
 
 ```typescript
-import { beautifulConsole } from 'beautiful-console';
+import { beautifulConsole as bc } from 'beautiful-console-ts';
 
 // 기본 로그 출력
-beautifulConsole.log('안녕하세요, beautifulConsole입니다!');
+bc.log('안녕하세요, beautifulConsole입니다!');
 
 // 스타일이 적용된 로그 출력
-beautifulConsole.log('커스텀 스타일이 적용된 메시지입니다.', {
+bc.log('커스텀 스타일이 적용된 메시지입니다.', {
   color: '#FF5722',
   fontSize: '16px',
   fontWeight: 'bold',
@@ -51,50 +51,50 @@ beautifulConsole.log('커스텀 스타일이 적용된 메시지입니다.', {
 
 ```typescript
 // 상태별 로그 출력
-beautifulConsole.success('작업이 성공적으로 완료되었습니다!');
-beautifulConsole.error('오류가 발생했습니다.');
-beautifulConsole.warn('주의해야 할 사항이 있습니다.');
-beautifulConsole.info('참고할 정보입니다.');
+bc.success('작업이 성공적으로 완료되었습니다!');
+bc.error('오류가 발생했습니다.');
+bc.warn('주의해야 할 사항이 있습니다.');
+bc.info('참고할 정보입니다.');
 ```
 
 ### 박스 스타일과 그라데이션
 
 ```typescript
 // 박스 스타일의 메시지
-beautifulConsole.box('중요한 알림: 시스템 업데이트가 있습니다.');
+bc.box('중요한 알림: 시스템 업데이트가 있습니다.');
 
 // 그라데이션 스타일
-beautifulConsole.gradient('그라데이션 메시지', '#FF5722', '#2196F3');
+bc.gradient('그라데이션 메시지', '#FF5722', '#2196F3');
 ```
 
 ### 그룹 기능
 
 ```typescript
 // 그룹 기능
-beautifulConsole.group({
+bc.group({
   title: '사용자 정보',
   collapsed: false,
   style: { color: '#E91E63' }
 }, () => {
-  beautifulConsole.log('이름: 홍길동');
-  beautifulConsole.log('이메일: hong@example.com');
-  beautifulConsole.log('권한: 관리자');
+  bc.log('이름: 홍길동');
+  bc.log('이메일: hong@example.com');
+  bc.log('권한: 관리자');
 });
 
 // 중첩 그룹 예제
-beautifulConsole.group({
+bc.group({
   title: '애플리케이션 상태',
   style: { color: '#4CAF50' }
 }, () => {
-  beautifulConsole.log('버전: 1.2.3');
+  bc.log('버전: 1.2.3');
   
-  beautifulConsole.group({
+  bc.group({
     title: '네트워크 상태',
     collapsed: true,
     style: { color: '#2196F3' }
   }, () => {
-    beautifulConsole.log('연결 상태: 온라인');
-    beautifulConsole.log('지연 시간: 120ms');
+    bc.log('연결 상태: 온라인');
+    bc.log('지연 시간: 120ms');
   });
 });
 ```
@@ -108,7 +108,7 @@ const users = [
   { id: 3, name: '이영희', role: '편집자', active: true }
 ];
 
-beautifulConsole.table(users, {
+bc.table(users, {
   headers: ['id', 'name', 'role', 'active'],
   alternateRowColors: true,
   headerStyle: {
@@ -121,10 +121,10 @@ beautifulConsole.table(users, {
 ### 시간 측정
 
 ```typescript
-beautifulConsole.timeStart('데이터 로딩');
+bc.timeStart('데이터 로딩');
 // 시간이 걸리는 작업 수행
 fetchData().then(() => {
-  beautifulConsole.timeEnd('데이터 로딩');
+  bc.timeEnd('데이터 로딩');
 });
 ```
 
@@ -137,20 +137,20 @@ const config = {
 };
 
 // JSON 데이터 출력
-beautifulConsole.json(config);
+bc.json(config);
 
 // 객체 트리 형태로 출력
-beautifulConsole.objectTree(config, '애플리케이션 설정');
+bc.objectTree(config, '애플리케이션 설정');
 ```
 
 ### 프로그레스 바
 
 ```typescript
-beautifulConsole.log('파일 업로드 진행률:');
-beautifulConsole.progress(25, 100);
-beautifulConsole.progress(50, 100);
-beautifulConsole.progress(75, 100);
-beautifulConsole.progress(100, 100);
+bc.log('파일 업로드 진행률:');
+bc.progress(25, 100);
+bc.progress(50, 100);
+bc.progress(75, 100);
+bc.progress(100, 100);
 ```
 
 ## 스타일 속성
