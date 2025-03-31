@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8191dadc-03b8-4a9a-9ea6-8a832a101f1f)# beautiful-console-ts
+# beautiful-console-ts
 
 프론트엔드 개발자를 위한 스타일링 기능이 강화된 브라우저 콘솔 라이브러리입니다. 디버깅을 더 예쁘고, 가독성 있게 만들어보세요.
 
@@ -24,7 +24,6 @@ yarn add beautiful-console-ts
 - 객체 트리 시각화
 - 시간 측정 및 성능 분석
 - 프로그레스 바 출력
-- 그리고 더 많은 기능들...
 
 ## 사용법
 
