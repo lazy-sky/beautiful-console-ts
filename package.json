@@ -1,6 +1,6 @@
 {
   "name": "beautiful-console-ts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "스타일링 기능이 강화된 브라우저 콘솔 라이브러리",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/beautiful-console-ts.git"
+    "url": "https://github.com/lazy-sky/beautiful-console-ts.git"
   },
   "files": [
     "dist",
