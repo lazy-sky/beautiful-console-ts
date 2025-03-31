@@ -5,13 +5,13 @@
 ## 설치
 
 ```bash
-npm install beautiful-console
+npm install beautiful-console-ts
 ```
 
 또는
 
 ```bash
-yarn add beautiful-console
+yarn add beautiful-console-ts
 ```
 
 ## 기능
