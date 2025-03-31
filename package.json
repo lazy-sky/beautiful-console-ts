@@ -1,0 +1,34 @@
+{
+  "name": "beautiful-console",
+  "version": "0.1.0",
+  "description": "스타일링 기능이 강화된 브라우저 콘솔 라이브러리",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "console",
+    "debug",
+    "typescript",
+    "browser",
+    "developer-tools",
+    "logging",
+    "styled-console"
+  ],
+  "author": "lazy-sky",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lazy-sky/beautifulConsole.git"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
