@@ -1,4 +1,4 @@
-# beautiful-console-ts
+![image](https://github.com/user-attachments/assets/8191dadc-03b8-4a9a-9ea6-8a832a101f1f)# beautiful-console-ts
 
 프론트엔드 개발자를 위한 스타일링 기능이 강화된 브라우저 콘솔 라이브러리입니다. 디버깅을 더 예쁘고, 가독성 있게 만들어보세요.
 
@@ -46,6 +46,8 @@ bc.log('커스텀 스타일이 적용된 메시지입니다.', {
   borderRadius: '4px'
 });
 ```
+![image](https://github.com/user-attachments/assets/86fa87bc-650c-420e-a832-6947772b4b46)
+
 
 ### 상태별 로그 출력
 
@@ -56,6 +58,7 @@ bc.error('오류가 발생했습니다.');
 bc.warn('주의해야 할 사항이 있습니다.');
 bc.info('참고할 정보입니다.');
 ```
+![image](https://github.com/user-attachments/assets/8af3c1c2-07d5-4aa5-877a-5d9f5b35e32c)
 
 ### 박스 스타일과 그라데이션
 
@@ -66,6 +69,7 @@ bc.box('중요한 알림: 시스템 업데이트가 있습니다.');
 // 그라데이션 스타일
 bc.gradient('그라데이션 메시지', '#FF5722', '#2196F3');
 ```
+![image](https://github.com/user-attachments/assets/d75db4d4-b188-4afb-8519-47f8ab6a3296)
 
 ### 그룹 기능
 
@@ -98,6 +102,7 @@ bc.group({
   });
 });
 ```
+![image](https://github.com/user-attachments/assets/c2853de1-d320-42a3-b2d9-615cdc89f94d)
 
 ### 테이블 출력
 
@@ -117,6 +122,7 @@ bc.table(users, {
   }
 });
 ```
+![image](https://github.com/user-attachments/assets/5354d343-b81f-434d-825c-6ef406be6524)
 
 ### 시간 측정
 
@@ -142,6 +148,7 @@ bc.json(config);
 // 객체 트리 형태로 출력
 bc.objectTree(config, '애플리케이션 설정');
 ```
+![image](https://github.com/user-attachments/assets/24ffbef8-2af3-453f-b485-26d1c4248f76)
 
 ### 프로그레스 바
 
@@ -152,6 +159,7 @@ bc.progress(50, 100);
 bc.progress(75, 100);
 bc.progress(100, 100);
 ```
+![image](https://github.com/user-attachments/assets/56ab1d28-0edc-4741-a1dc-be9a3b7fd94a)
 
 ## 스타일 속성
 
