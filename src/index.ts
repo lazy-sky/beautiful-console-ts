@@ -107,7 +107,11 @@ class BeautifulConsole {
     this.log(message, boxStyle);
   }
 
-  gradient(message: string, fromColor: string, toColor: string): void {
+  gradient(
+    message: string, 
+    fromColor: string = '#FF5722', 
+    toColor: string = '#2196F3' 
+  ): void {
     console.log(
       `%c${message}`,
       `background: linear-gradient(to right, ${fromColor}, ${toColor}); color: white; padding: 5px; border-radius: 3px;`,

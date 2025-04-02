@@ -66,7 +66,7 @@ bc.info('참고할 정보입니다.');
 bc.box('중요한 알림: 시스템 업데이트가 있습니다.');
 
 // 그라데이션 스타일
-bc.gradient('그라데이션 메시지', '#FF5722', '#2196F3');
+bc.gradient('그라데이션 메시지');
 ```
 ![image](https://github.com/user-attachments/assets/d75db4d4-b188-4afb-8519-47f8ab6a3296)
 
