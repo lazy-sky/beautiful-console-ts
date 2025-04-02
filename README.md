@@ -33,7 +33,7 @@ yarn add beautiful-console-ts
 import { beautifulConsole as bc } from 'beautiful-console-ts';
 
 // 기본 로그 출력
-bc.log('안녕하세요, beautifulConsole입니다!');
+bc.log('안녕하세요, lazy-sky의 beautiful-console-ts입니다!');
 
 // 스타일이 적용된 로그 출력
 bc.log('커스텀 스타일이 적용된 메시지입니다.', {
@@ -42,7 +42,20 @@ bc.log('커스텀 스타일이 적용된 메시지입니다.', {
   fontWeight: 'bold',
   backgroundColor: '#FFFDE7',
   padding: '5px 10px',
-  borderRadius: '4px'
+  borderRadius: '4px',
+});
+
+// 특정 테마로 로그 출력
+bc.log('다크 테마로 출력되는 메시지입니다.', { theme: 'dark' });
+bc.log('라이트 테마로 출력되는 메시지입니다.', { theme: 'light' });
+
+// 테마와 스타일을 함께 적용
+bc.log('테마와 커스텀 스타일이 적용된 메시지입니다.', {
+  theme: 'dark',
+  style: {
+    fontSize: '16px',
+    fontWeight: 'bold'
+  }
 });
 ```
 ![image](https://github.com/user-attachments/assets/86fa87bc-650c-420e-a832-6947772b4b46)
@@ -160,22 +173,41 @@ bc.progress(100, 100);
 ```
 ![image](https://github.com/user-attachments/assets/56ab1d28-0edc-4741-a1dc-be9a3b7fd94a)
 
+### 테마 설정
+
+```typescript
+// 테마 설정 (light, dark, system)
+bc.setTheme('dark');
+bc.setTheme('light');
+bc.setTheme('system'); // 시스템 설정 따르기
+
+// 커스텀 테마 스타일 설정
+bc.setThemeStyles({
+  light: {
+    backgroundColor: '#f5f5f5',
+    color: '#2c3e50'
+  },
+  dark: {
+    backgroundColor: '#2c3e50',
+    color: '#ecf0f1'
+  }
+});
+```
+
 ## 스타일 속성
 
-다음 스타일 속성들을 사용하여 콘솔 출력을 커스터마이징할 수 있습니다:
-
-| 속성 | 설명 | 예시 값 |
-|------|------|---------|
-| color | 텍스트 색상 | '#FF5722', 'red' |
-| backgroundColor | 배경 색상 | '#FFFDE7', 'lightblue' |
-| fontSize | 폰트 크기 | '14px', '1.2em' |
-| fontWeight | 폰트 두께 | 'bold', 'normal' |
-| fontStyle | 폰트 스타일 | 'italic', 'normal' |
-| textDecoration | 텍스트 장식 | 'underline', 'none' |
-| border | 테두리 | '1px solid #ccc' |
-| borderRadius | 테두리 둥글기 | '5px', '50%' |
-| padding | 내부 여백 | '5px 10px' |
-| margin | 외부 여백 | '10px' |
+| 속성 | 예시 값 |
+|------|---------|
+| color | '#FF5722', 'red' |
+| backgroundColor | '#FFFDE7', 'lightblue' |
+| fontSize | '14px', '1.2em' |
+| fontWeight | 'bold', 'normal' |
+| fontStyle | 'italic', 'normal' |
+| textDecoration | 'underline', 'none' |
+| border | '1px solid #ccc' |
+| borderRadius | '5px', '50%' |
+| padding | '5px 10px' |
+| margin | '10px' |
 
 ## 라이센스
 

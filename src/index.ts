@@ -1,4 +1,8 @@
+type Theme = 'light' | 'dark' | 'system';
+type ThemeExcludeSystem = Exclude<Theme, 'system'>;
+
 type ConsoleStyle = {
+  theme?: Theme;
   color?: string;
   backgroundColor?: string;
   fontSize?: string;
@@ -25,15 +29,57 @@ type TableOptions = {
   alternateRowColors?: boolean;
 };
 
+type ThemeStyles = {
+  light: ConsoleStyle;
+  dark: ConsoleStyle;
+}
+
 class BeautifulConsole {
-  private defaultStyle: ConsoleStyle = {
-    backgroundColor: '#333333',
-    color: '#d3d3d3',
-    fontSize: '12px',
+  private defaultTheme: Theme = 'system';
+  private themeStyles: Record<ThemeExcludeSystem, ConsoleStyle> = {
+    light: {
+      backgroundColor: '#333333',
+      color: '#d3d3d3',
+    },
+    dark: {
+      backgroundColor: '#ffffff',
+      color: '#333333',
+    }
   };
 
+  private get currentTheme(): ThemeExcludeSystem {
+    return this.isDarkMode ? 'dark' : 'light';
+  }
+
+  private get isDarkMode(): boolean {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  }
+
+  setTheme(theme: Theme): void {
+    this.defaultTheme = theme;
+  }
+
+  setThemeStyles(styles: Partial<ThemeStyles>): void {
+    if (styles.light) {
+      this.themeStyles.light = { ...this.themeStyles.light, ...styles.light };
+    }
+    if (styles.dark) {
+      this.themeStyles.dark = { ...this.themeStyles.dark, ...styles.dark };
+    }
+  }
+
   log(message: any, style?: ConsoleStyle): void {
-    const combinedStyle = { ...this.defaultStyle, ...style };
+    const theme = style?.theme || this.defaultTheme;
+    const themeStyle = theme === 'system' ? 
+      this.themeStyles[this.currentTheme] : 
+      this.themeStyles[theme as ThemeExcludeSystem];
+
+    const combinedStyle = { ...themeStyle, ...style };
+    delete combinedStyle.theme;
+    
     const styleString = this.styleObjectToString(combinedStyle);
 
     if (typeof message === 'object') {
