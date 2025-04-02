@@ -172,27 +172,6 @@ bc.progress(100, 100);
 ```
 ![image](https://github.com/user-attachments/assets/56ab1d28-0edc-4741-a1dc-be9a3b7fd94a)
 
-### 테마 설정
-
-```typescript
-// 테마 설정 (light, dark, system)
-bc.setTheme('dark');
-bc.setTheme('light');
-bc.setTheme('system'); // 시스템 설정 따르기
-
-// 커스텀 테마 스타일 설정
-bc.setThemeStyles({
-  light: {
-    backgroundColor: '#f5f5f5',
-    color: '#2c3e50'
-  },
-  dark: {
-    backgroundColor: '#2c3e50',
-    color: '#ecf0f1'
-  }
-});
-```
-
 ## 스타일 속성
 
 | 속성 | 예시 값 |
