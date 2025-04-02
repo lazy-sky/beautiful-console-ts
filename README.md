@@ -58,8 +58,7 @@ bc.log('테마와 커스텀 스타일이 적용된 메시지입니다.', {
   }
 });
 ```
-![image](https://github.com/user-attachments/assets/86fa87bc-650c-420e-a832-6947772b4b46)
-
+![image](https://github.com/user-attachments/assets/5fe27281-849c-4b68-a252-fb11695f5cdf)
 
 ### 상태별 로그 출력
 
