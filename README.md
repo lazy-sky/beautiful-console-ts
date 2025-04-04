@@ -1,6 +1,23 @@
 # beautiful-console-ts
 
+![npm](https://img.shields.io/npm/v/beautiful-console-ts)
+![npm bundle size](https://img.shields.io/bundlephobia/min/beautiful-console-ts)
+![npm downloads](https://img.shields.io/npm/dm/beautiful-console-ts)
+![GitHub stars](https://img.shields.io/github/stars/lazy-sky/beautiful-console-ts)
+![License](https://img.shields.io/npm/l/beautiful-console-ts)
+
 프론트엔드 개발자를 위한 스타일링 기능이 강화된 브라우저 콘솔 라이브러리입니다. 디버깅을 더 예쁘고, 가독성 있게 만들어보세요.
+
+## ✨ 특징
+
+- 🎨 완전한 스타일 커스터마이징
+- 🌓 라이트/다크 테마 지원
+- 📊 향상된 테이블 출력
+- 🎯 상태별 로그 스타일링
+- 🌈 그라데이션 텍스트
+- 🌲 객체 트리 시각화
+- ⏱️ 성능 측정
+- 📊 프로그레스 바
 
 ## 설치
 
@@ -187,6 +204,14 @@ bc.progress(100, 100);
 | padding | '5px 10px' |
 | margin | '10px' |
 
-## 라이센스
+## 🤝 기여하기
 
-MIT
+이슈와 풀 리퀘스트는 언제나 환영합니다! 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참고해주세요.
+
+## 💖 후원하기
+
+이 프로젝트가 도움이 되었다면, ⭐️ 스타를 눌러주세요!
+
+## 📜 라이센스
+
+MIT © [lazy-sky](LICENSE)
