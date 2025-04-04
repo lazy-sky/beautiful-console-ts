@@ -1,8 +1,5 @@
 type Theme = 'light' | 'dark' | 'system';
-
 type ThemeExcludeSystem = Exclude<Theme, 'system'>;
-
-/** 콘솔 출력에 적용할 수 있는 스타일 옵션 */
 type ConsoleStyle = {
   theme?: Theme;
   color?: string;
@@ -31,7 +28,26 @@ type TableOptions = {
   alternateRowColors?: boolean;
 };
 
-/** 브라우저 콘솔 스타일링을 위한 유틸리티 클래스 */
+/** 
+ * Utility class for browser console styling
+ * @example
+ * ```ts
+ * import { beautifulConsole as bc } from 'beautiful-console-ts';
+ * 
+ * // Basic usage
+ * bc.log('Hello, World!');
+ * 
+ * // With custom style
+ * bc.log('Styled message', {
+ *   color: '#FF5722',
+ *   fontSize: '16px',
+ *   backgroundColor: '#FFFDE7'
+ * });
+ * 
+ * // With theme
+ * bc.log('Dark theme message', { theme: 'dark' });
+ * ```
+ */
 class BeautifulConsole {
   private readonly defaultTheme: Theme = 'system';
   private readonly themeStyles: Record<ThemeExcludeSystem, ConsoleStyle> = {
@@ -57,9 +73,24 @@ class BeautifulConsole {
   }
 
   /**
-   * 기본 로그 출력
-   * @param message - 출력할 메시지
-   * @param style - 적용할 스타일
+   * Basic log output with styling
+   * @param message - Message to output
+   * @param style - Style to apply
+   * @example
+   * ```ts
+   * // Basic log
+   * bc.log('Hello, World!');
+   * 
+   * // With theme
+   * bc.log('Dark theme', { theme: 'dark' });
+   * 
+   * // With custom style
+   * bc.log('Custom style', {
+   *   color: 'white',
+   *   backgroundColor: '#2196F3',
+   *   padding: '5px'
+   * });
+   * ```
    */
   log(message: any, style?: ConsoleStyle): void {
     const theme = style?.theme || this.defaultTheme;
@@ -81,9 +112,19 @@ class BeautifulConsole {
   }
 
   /**
-   * 에러 메시지 출력
-   * @param message - 출력할 메시지
-   * @param style - 추가 스타일
+   * Output error message
+   * @param message - Error message to output
+   * @param style - Additional style
+   * @example
+   * ```ts
+   * bc.error('Failed to fetch data');
+   * 
+   * // With custom style
+   * bc.error('Critical error', {
+   *   fontSize: '16px',
+   *   padding: '10px'
+   * });
+   * ```
    */
   error(message: any, style?: ConsoleStyle): void {
     const errorStyle: ConsoleStyle = {
@@ -99,9 +140,19 @@ class BeautifulConsole {
   }
 
   /**
-   * 경고 메시지 출력
-   * @param message - 출력할 메시지
-   * @param style - 추가 스타일
+   * Output warning message
+   * @param message - Warning message to output
+   * @param style - Additional style
+   * @example
+   * ```ts
+   * bc.warn('Deprecated feature');
+   * 
+   * // With custom style
+   * bc.warn('Please update', {
+   *   fontSize: '14px',
+   *   fontWeight: 'bold'
+   * });
+   * ```
    */
   warn(message: any, style?: ConsoleStyle): void {
     const warnStyle: ConsoleStyle = {
@@ -117,9 +168,19 @@ class BeautifulConsole {
   }
 
   /**
-   * 성공 메시지 출력
-   * @param message - 출력할 메시지
-   * @param style - 추가 스타일
+   * Output success message
+   * @param message - Success message to output
+   * @param style - Additional style
+   * @example
+   * ```ts
+   * bc.success('Data saved successfully');
+   * 
+   * // With custom style
+   * bc.success('Task completed', {
+   *   padding: '8px',
+   *   borderRadius: '4px'
+   * });
+   * ```
    */
   success(message: any, style?: ConsoleStyle): void {
     const successStyle: ConsoleStyle = {
@@ -135,9 +196,9 @@ class BeautifulConsole {
   }
 
   /**
-   * 정보 메시지 출력
-   * @param message - 출력할 메시지
-   * @param style - 추가 스타일
+   * Output info message
+   * @param message - Info message to output
+   * @param style - Additional style
    */
   info(message: any, style?: ConsoleStyle): void {
     const infoStyle: ConsoleStyle = {
@@ -153,9 +214,9 @@ class BeautifulConsole {
   }
 
   /**
-   * 박스 스타일로 메시지 출력
-   * @param message - 출력할 메시지
-   * @param style - 추가 스타일
+   * Output message in box style
+   * @param message - Message to output
+   * @param style - Additional style
    */
   box(message: any, style?: ConsoleStyle): void {
     const boxStyle: ConsoleStyle = {
@@ -170,10 +231,18 @@ class BeautifulConsole {
   }
 
   /**
-   * 그라데이션 스타일로 메시지 출력
-   * @param message - 출력할 메시지
-   * @param fromColor - 시작 색상
-   * @param toColor - 종료 색상
+   * Output message in gradient style
+   * @param message - Message to output
+   * @param fromColor - Start color
+   * @param toColor - End color
+   * @example
+   * ```ts
+   * // Default gradient
+   * bc.gradient('Beautiful gradient');
+   * 
+   * // Custom gradient colors
+   * bc.gradient('Custom gradient', '#FF0080', '#7928CA');
+   * ```
    */
   gradient(message: string, fromColor = '#FF5722', toColor = '#2196F3'): void {
     console.log(
@@ -183,9 +252,27 @@ class BeautifulConsole {
   }
 
   /**
-   * 그룹화된 메시지 출력
-   * @param options - 그룹 옵션
-   * @param callback - 그룹 내부에서 실행할 콜백 함수
+   * Output grouped messages
+   * @param options - Group options
+   * @param callback - Callback function to execute inside the group
+   * @example
+   * ```ts
+   * bc.group({
+   *   title: 'User Info',
+   *   style: { color: '#E91E63' }
+   * }, () => {
+   *   bc.log('Name: John');
+   *   bc.log('Role: Admin');
+   * });
+   * 
+   * // Collapsed group
+   * bc.group({
+   *   title: 'Details',
+   *   collapsed: true
+   * }, () => {
+   *   bc.log('Created: 2024-03-22');
+   * });
+   * ```
    */
   group(options: GroupOptions, callback: () => void): void {
     const { title, collapsed = false, style } = options;
@@ -209,9 +296,25 @@ class BeautifulConsole {
   }
 
   /**
-   * 테이블 형태로 데이터 출력
-   * @param data - 출력할 데이터 배열
-   * @param options - 테이블 스타일 옵션
+   * Output data in table format
+   * @param data - Array of data to output
+   * @param options - Table style options
+   * @example
+   * ```ts
+   * const users = [
+   *   { id: 1, name: 'John', role: 'Admin' },
+   *   { id: 2, name: 'Jane', role: 'User' }
+   * ];
+   * 
+   * bc.table(users, {
+   *   headers: ['id', 'name', 'role'],
+   *   alternateRowColors: true,
+   *   headerStyle: {
+   *     backgroundColor: '#3F51B5',
+   *     color: 'white'
+   *   }
+   * });
+   * ```
    */
   table(data: any[], options?: TableOptions): void {
     if (!data.length) {
@@ -264,9 +367,9 @@ class BeautifulConsole {
   }
 
   /**
-   * 시간 측정 시작
-   * @param label - 측정할 작업의 레이블
-   * @param style - 추가 스타일
+   * Start time measurement
+   * @param label - Label for the task being measured
+   * @param style - Additional style
    */
   timeStart(label: string, style?: ConsoleStyle): void {
     const timeStyle: ConsoleStyle = {
@@ -280,9 +383,9 @@ class BeautifulConsole {
   }
 
   /**
-   * 시간 측정 종료 및 결과 출력
-   * @param label - 측정할 작업의 레이블
-   * @param style - 추가 스타일
+   * End time measurement and output result
+   * @param label - Label for the task being measured
+   * @param style - Additional style
    */
   timeEnd(label: string, style?: ConsoleStyle): void {
     const timeStyle: ConsoleStyle = {
@@ -296,9 +399,9 @@ class BeautifulConsole {
   }
 
   /**
-   * JSON 데이터를 포맷팅하여 출력
-   * @param data - 출력할 JSON 데이터
-   * @param expanded - 확장된 형태로 출력할지 여부
+   * Output formatted JSON data
+   * @param data - JSON data to output
+   * @param expanded - Whether to output in expanded format
    */
   json(data: any, expanded = true): void {
     if (expanded) {
@@ -309,9 +412,9 @@ class BeautifulConsole {
   }
 
   /**
-   * 객체를 트리 형태로 시각화하여 출력
-   * @param obj - 출력할 객체
-   * @param name - 트리의 루트 이름
+   * Output object in tree format
+   * @param obj - Object to output
+   * @param name - Root name of the tree
    */
   objectTree(obj: any, name = 'Object'): void {
     console.groupCollapsed(`%c${name}`, 'font-weight: bold; color: #2196F3;');
@@ -332,10 +435,26 @@ class BeautifulConsole {
   }
 
   /**
-   * 진행률을 시각화하여 출력
-   * @param value - 현재 진행값
-   * @param max - 최대값
-   * @param length - 프로그레스 바의 길이
+   * Output progress visualization
+   * @param value - Current progress value
+   * @param max - Maximum value
+   * @param length - Length of progress bar
+   * @example
+   * ```ts
+   * // Basic progress
+   * bc.progress(50, 100);
+   * 
+   * // Custom length
+   * bc.progress(7, 10, 30);
+   * 
+   * // Progress updates
+   * let progress = 0;
+   * const interval = setInterval(() => {
+   *   progress += 25;
+   *   bc.progress(progress);
+   *   if (progress >= 100) clearInterval(interval);
+   * }, 1000);
+   * ```
    */
   progress(value: number, max = 100, length = 20): void {
     const percentage = Math.round((value / max) * 100);
@@ -359,15 +478,15 @@ class BeautifulConsole {
   }
 
   /**
-   * ConsoleStyle 객체를 CSS 스타일 문자열로 변환
-   * @param style - 변환할 스타일 객체
-   * @returns CSS 스타일 문자열
+   * Convert ConsoleStyle object to CSS style string
+   * @param style - Style object to convert
+   * @returns CSS style string
    */
   private styleObjectToString(style: ConsoleStyle): string {
     return Object.entries(style)
       .filter(([, value]) => value !== undefined)
       .map(([key, value]) => {
-        // camelCase를 kebab-case로 변환 (예: backgroundColor -> background-color)
+        // camelCase to kebab-case conversion (e.g., backgroundColor -> background-color)
         const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
         return `${cssKey}: ${value}`;
       })
