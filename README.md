@@ -20,6 +20,7 @@ Enhanced browser console library with styling capabilities for frontend develope
 - Object tree visualization | 객체 트리 시각화
 - Time measurement and performance analysis | 시간 측정 및 성능 분석
 - Progress bar output | 프로그레스 바 출력
+- Trace (call stack) output | 트레이스(호출 스택) 출력
 
 ## Installation | 설치
 
@@ -74,6 +75,10 @@ bc.success('Operation completed successfully!');
 bc.error('An error occurred.');
 bc.warn('Warning: Please check the input.');
 bc.info('Additional information.');
+
+// Trace (call stack) | 트레이스(호출 스택)
+bc.trace('여기서 호출됨');
+bc.trace('에러 위치', { color: 'red' });
 ```
 ![image](https://github.com/user-attachments/assets/8af3c1c2-07d5-4aa5-877a-5d9f5b35e32c)
 
@@ -177,6 +182,16 @@ bc.progress(75, 100);
 bc.progress(100, 100);
 ```
 ![image](https://github.com/user-attachments/assets/56ab1d28-0edc-4741-a1dc-be9a3b7fd94a)
+
+### Trace | 트레이스
+
+```typescript
+// Trace (call stack) | 트레이스(호출 스택)
+bc.trace('트레이스 메시지');
+bc.trace('에러 위치', { color: 'red' });
+```
+
+트레이스는 호출 스택을 스타일과 함께 출력합니다. 디버깅 시 호출 경로를 한눈에 파악할 수 있습니다.
 
 ## Style Properties | 스타일 속성
 

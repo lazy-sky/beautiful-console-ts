@@ -116,7 +116,6 @@ class BeautifulConsole {
    * @param message - Error message to output
    * @param style - Additional style
    * @example
-   * ```ts
    * bc.error('Failed to fetch data');
    * 
    * // With custom style
@@ -144,7 +143,6 @@ class BeautifulConsole {
    * @param message - Warning message to output
    * @param style - Additional style
    * @example
-   * ```ts
    * bc.warn('Deprecated feature');
    * 
    * // With custom style
@@ -172,7 +170,6 @@ class BeautifulConsole {
    * @param message - Success message to output
    * @param style - Additional style
    * @example
-   * ```ts
    * bc.success('Data saved successfully');
    * 
    * // With custom style
@@ -256,7 +253,6 @@ class BeautifulConsole {
    * @param options - Group options
    * @param callback - Callback function to execute inside the group
    * @example
-   * ```ts
    * bc.group({
    *   title: 'User Info',
    *   style: { color: '#E91E63' }
@@ -475,6 +471,33 @@ class BeautifulConsole {
     }
 
     this.log(progressBar, { color });
+  }
+
+  /**
+   * 호출 스택(trace) 출력
+   * @param message - 출력할 메시지
+   * @param style - 추가 스타일
+   * @example
+   * bc.trace('여기서 호출됨');
+   * bc.trace('에러 위치', { color: 'red' });
+   */
+  trace(message: any, style?: ConsoleStyle): void {
+    const traceStyle: ConsoleStyle = {
+      color: '#607D8B',
+      backgroundColor: '#ECEFF1',
+      fontWeight: 'bold',
+      padding: '2px 5px',
+      borderRadius: '3px',
+      ...style,
+    };
+
+    const styleString = this.styleObjectToString(traceStyle);
+
+    if (typeof message === 'object') {
+      console.trace('%c Object:', styleString, message);
+    } else {
+      console.trace(`%c${message}`, styleString);
+    }
   }
 
   /**
